@@ -82,12 +82,12 @@ if get_gsc_file is not None:
     
     def colortable(val):
         if val == 'DOWN':
-            color="red;weight:bold;"
+            color="lightcoral"
         elif val == 'UP':
-            color = "green;weight:bold;"
+            color = "lightgreen"
         else:
-            color = 'black'
-        return 'color: %s' % color
+            color = 'white'
+        return 'background-color: %s' % color
 
     df3 = df3.style.applymap(colortable)
 
