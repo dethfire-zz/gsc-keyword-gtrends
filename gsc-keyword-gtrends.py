@@ -20,7 +20,7 @@ st.markdown("""
 <b>Directions: </b></ br><ol>
 <li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
 <li>Max number of queries to run is capped to 200 to prevent timeout of the app or being blocked by Google</li>
-<li>Tutorial coming 11/7/2021</li>
+<li>Tutorial coming soon!</li>
 """, unsafe_allow_html=True)
 
 sortby = st.selectbox('Sort Keywords By',('Clicks', 'Impressions','CTR','Position'))
@@ -46,6 +46,10 @@ if get_gsc_file is not None:
     df3 = pd.DataFrame(data=d)
     keywords = []
     trends = []
+    up =0
+    down =0
+    flat =0
+    na = 0
 
     for index, row in df.iterrows():
       keyword = row['Top queries']
@@ -67,15 +71,19 @@ if get_gsc_file is not None:
         if trend3 > trend2 and trend2 > trend1:
           print(keyword + " is trending up")
           trends.append('UP')
+          up+=1
         elif trend3 < trend2 and trend2 < trend1:
           print(keyword + " is trending down")
           trends.append('DOWN')
+          down+=1
         else:
           print(keyword + " is flat")
           trends.append('FLAT')
+          flat+=1
       except:
         print(keyword + " has no data")
         trends.append('N/A')
+        na+=1
       time.sleep(pause)
       
     df3['Keyword'] = keywords
@@ -98,6 +106,12 @@ if get_gsc_file is not None:
         csv = df.to_csv(index=False)
         b64 = base64.b64encode(csv.encode()).decode()
         return f'<a href="data:file/csv;base64,{b64}" download="{title}">Download CSV File</a>'
+    
+    st.write("Trending Totals")
+    st.write("Up: " + up + " " + round(up/len(trends),0) + "%")
+    st.write("Down: " + down + " " + round(down/len(trends),0) + "%")
+    st.write("Flat: " + flat + " " + round(flat/len(trends),0) + "%")
+    st.write("N/A: " + na + " " + round(na/len(trends),0) + "%")
     
     st.markdown(get_csv_download_link(df3.data,"gsc-keyword-trends.csv"), unsafe_allow_html=True)
     st.dataframe(df3)
