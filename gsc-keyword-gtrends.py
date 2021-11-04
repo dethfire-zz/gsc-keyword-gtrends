@@ -17,10 +17,17 @@ st.markdown("""
 st.markdown("""
 <p class="big-font">Google Trends in GSC Keywordsr</p>
 <b>Directions: </b></ br><ol>
-<li>Export Performance data (60 days clicks, impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
+<li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
 """, unsafe_allow_html=True)
 
 cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=10)
+pause = st.number_input('Pause between calls', min_value=1, max_value=5, value=2)
+timeframe = st.selectbox('Timeframe',('1-m', '3-m', '12-m'))
+
+geo = st.selectbox('Geo',('Worldwide', 'US'))
+
+if geo = 'Wordwide':
+    geo = ''
 
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
 
@@ -41,7 +48,7 @@ if get_gsc_file is not None:
       keyword = row['Top queries']
       pytrends = TrendReq(hl='en-US', tz=360)
       kw_list = [keyword]
-      pytrends.build_payload(kw_list, cat=0, timeframe='today 3-m', geo='', gprop='')
+      pytrends.build_payload(kw_list, cat=0, timeframe='today'+timeframe, geo=geo, gprop='')
       df2 = pytrends.interest_over_time()
       keywords.append(keyword)
       try:
@@ -66,7 +73,7 @@ if get_gsc_file is not None:
       except:
         print(keyword + " has no data")
         trends.append('N/A')
-      time.sleep(2)
+      time.sleep(pause)
       
     df3['Keyword'] = keywords
     df3['Trend'] = trends
