@@ -22,7 +22,7 @@ st.markdown("""
 
 cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=10)
 pause = st.number_input('Pause between calls', min_value=1, max_value=5, value=2)
-timeframe = st.selectbox('Timeframe',('1-m', '3-m', '12-m'))
+timeframe = st.selectbox('Timeframe',('Today 1-m', 'Today 3-m', 'Today 12-m'))
 
 geo = st.selectbox('Geo',('World', 'US'))
 
@@ -47,7 +47,7 @@ if get_gsc_file is not None:
       keyword = row['Top queries']
       pytrends = TrendReq(hl='en-US', tz=360)
       kw_list = [keyword]
-      pytrends.build_payload(kw_list, cat=0, timeframe='today '+timeframe, geo=geo, gprop='')
+      pytrends.build_payload(kw_list, cat=0, timeframe=timeframe, geo=geo, gprop='')
       df2 = pytrends.interest_over_time()
       keywords.append(keyword)
       try:
