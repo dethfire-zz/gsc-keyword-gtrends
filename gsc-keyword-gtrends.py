@@ -92,7 +92,13 @@ if get_gsc_file is not None:
         return 'background-color: %s' % color
 
     df3 = df3.style.applymap(colortable)
-
-    st.dataframe(df3)    
+    
+    def get_csv_download_link(df, title):
+        csv = df.to_csv(index=False)
+        b64 = base64.b64encode(csv.encode()).decode()
+        return f'<a href="data:file/csv;base64,{b64}" download="{title}">Download CSV File</a>'
+    
+    st.markdown(get_csv_download_link(df3,"gsc-keyword-trends.csv"), unsafe_allow_html=True)
+    st.dataframe(df3)
 
 st.write('Author: [Greg Bernhardt](https://twitter.com/GregBernhardt4) | Friends: [importSEM](https://www.importsem.com) and [Physics Forums](https://www.physicsforums.com)')
