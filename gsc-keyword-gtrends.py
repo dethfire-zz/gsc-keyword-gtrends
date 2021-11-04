@@ -27,7 +27,7 @@ get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])
 if get_gsc_file is not None:
     st.write("Data upload success, processing... :sunglasses:")
     
-    df = pd.read_csv("Queries.csv",encoding = 'utf-8')
+    df = pd.read_csv(get_gsc_file, encoding='utf-8')
     df.sort_values(by=['Impressions'], ascending=False, inplace=True)
     #df.drop([0,3], inplace=True)
     df = df[:cutoff]
