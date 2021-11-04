@@ -26,12 +26,13 @@ timeframe = st.selectbox('Timeframe',('Today 1-m', 'Today 3-m', 'Today 12-m'))
 
 geo = st.selectbox('Geo',('World', 'US'))
 
+if geo == 'World':
+    geo = ''
+
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
 
 if get_gsc_file is not None:
     st.write("Data upload success, processing... :sunglasses:")
-    print(timeframe)
-    print(geo)
     
     df = pd.read_csv(get_gsc_file, encoding='utf-8')
     df.sort_values(by=['Impressions'], ascending=False, inplace=True)
@@ -47,7 +48,7 @@ if get_gsc_file is not None:
       keyword = row['Top queries']
       pytrends = TrendReq(hl='en-US', tz=360)
       kw_list = [keyword]
-      pytrends.build_payload(kw_list, cat=0, timeframe=timeframe, geo=geo, gprop='')
+      pytrends.build_payload(kw_list, cat=0, timeframe=timeframe, geo='+geo+', gprop='')
       df2 = pytrends.interest_over_time()
       keywords.append(keyword)
       try:
