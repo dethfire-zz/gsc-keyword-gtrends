@@ -82,7 +82,12 @@ if get_gsc_file is not None:
     
     def style_negative(v, props=''):
         return props if v == 'DOWN' else None
+    
+    def style_negative(v, props=''):
+        return props if v == 'UP' else None
 
-    st.dataframe(df3.style.applymap(style_negative, props='color:red;'))      
+    df3 = df3.style.applymap(style_negative, props='color:red;')
+    df3 = df3.style.applymap(style_positive, props='color:green;')
+    st.dataframe(df3)    
 
 st.write('Author: [Greg Bernhardt](https://twitter.com/GregBernhardt4) | Friends: [importSEM](https://www.importsem.com) and [Physics Forums](https://www.physicsforums.com)')
