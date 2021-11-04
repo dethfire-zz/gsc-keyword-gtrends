@@ -34,7 +34,7 @@ if geo == 'World':
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
 
 if get_gsc_file is not None:
-    st.write("Data upload success, processing... :sunglasses:")
+    st.write("Data upload success, processing... patience :sunglasses:")
     
     df = pd.read_csv(get_gsc_file, encoding='utf-8')
     df.sort_values(by=[sortby], ascending=False, inplace=True)
@@ -88,7 +88,7 @@ if get_gsc_file is not None:
         elif val == 'FLAT':
             color = "lightblue"
         else:
-            color = 'lightgray'
+            color = 'white'
         return 'background-color: %s' % color
 
     df3 = df3.style.applymap(colortable)
