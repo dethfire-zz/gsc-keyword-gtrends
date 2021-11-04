@@ -83,7 +83,7 @@ if get_gsc_file is not None:
     def style_negative(v, props=''):
         return props if v == 'DOWN' else None
     
-    def style_negative(v, props=''):
+    def style_positive(v, props=''):
         return props if v == 'UP' else None
 
     df3 = df3.style.applymap(style_negative, props='color:red;')
