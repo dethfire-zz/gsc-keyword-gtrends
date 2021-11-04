@@ -33,6 +33,8 @@ get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])
 
 if get_gsc_file is not None:
     st.write("Data upload success, processing... :sunglasses:")
+    print(timeframe)
+    print(geo)
     
     df = pd.read_csv(get_gsc_file, encoding='utf-8')
     df.sort_values(by=['Impressions'], ascending=False, inplace=True)
