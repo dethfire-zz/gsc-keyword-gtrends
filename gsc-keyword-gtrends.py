@@ -48,7 +48,7 @@ if get_gsc_file is not None:
       keyword = row['Top queries']
       pytrends = TrendReq(hl='en-US', tz=360)
       kw_list = [keyword]
-      pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='')
+      pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo=geo, gprop='')
       df2 = pytrends.interest_over_time()
       keywords.append(keyword)
       try:
