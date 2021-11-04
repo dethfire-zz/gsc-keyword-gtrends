@@ -24,10 +24,7 @@ cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=
 pause = st.number_input('Pause between calls', min_value=1, max_value=5, value=2)
 timeframe = st.selectbox('Timeframe',('1-m', '3-m', '12-m'))
 
-geo = st.selectbox('Geo',('Worldwide', 'US'))
-
-if geo == 'Wordwide':
-    geo = ''
+geo = st.selectbox('Geo',('World', 'US'))
 
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
 
@@ -50,7 +47,7 @@ if get_gsc_file is not None:
       keyword = row['Top queries']
       pytrends = TrendReq(hl='en-US', tz=360)
       kw_list = [keyword]
-      pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo=geo, gprop='')
+      pytrends.build_payload(kw_list, cat=0, timeframe='today '+timeframe, geo=geo, gprop='')
       df2 = pytrends.interest_over_time()
       keywords.append(keyword)
       try:
