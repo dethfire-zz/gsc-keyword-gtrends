@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import requests
 import time
+import base64
 from pytrends.request import TrendReq
 
 st.markdown("""
