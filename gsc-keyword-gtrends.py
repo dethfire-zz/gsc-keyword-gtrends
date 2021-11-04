@@ -79,6 +79,10 @@ if get_gsc_file is not None:
       
     df3['Keyword'] = keywords
     df3['Trend'] = trends
-    st.dataframe(df3)      
+    
+    def style_negative(v, props=''):
+    return props if v = 'DOWN' else None
+
+    st.dataframe(df3.style.applymap(style_negative, props='color:red;'))      
 
 st.write('Author: [Greg Bernhardt](https://twitter.com/GregBernhardt4) | Friends: [importSEM](https://www.importsem.com) and [Physics Forums](https://www.physicsforums.com)')
