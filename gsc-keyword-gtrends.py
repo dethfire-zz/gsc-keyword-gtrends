@@ -18,7 +18,7 @@ st.markdown("""
 <p class="big-font">Google Trends For Top GSC Keywords</p>
 <b>Directions: </b></ br><ol>
 <li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
-<li>Keep number of queries to run to a reasonable number or you'll timeout the app or be blocked by Google</li>
+<li>Max number of queries to run is capped to 200 to prevent timeout of the app or being blocked by Google</li>
 """, unsafe_allow_html=True)
 
 sortby = st.selectbox('Sort Keywords By',('Clicks', 'Impressions','CTR','Position'))
