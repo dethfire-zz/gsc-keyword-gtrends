@@ -108,10 +108,10 @@ if get_gsc_file is not None:
         return f'<a href="data:file/csv;base64,{b64}" download="{title}">Download CSV File</a>'
     
     st.write("Trending Totals")
-    st.write("Up: " + up + " " + str(round(up/len(trends),0) + "%"))
-    st.write("Down: " + down + " " + str(round(down/len(trends),0) + "%"))
-    st.write("Flat: " + flat + " " + str(round(flat/len(trends),0) + "%"))
-    st.write("N/A: " + na + " " + str(round(na/len(trends),0) + "%"))
+    st.write("Up: " + up + " " + str(round(up/len(trends),0)) + "%")
+    st.write("Down: " + down + " " + str(round(down/len(trends),0)) + "%")
+    st.write("Flat: " + flat + " " + str(round(flat/len(trends),0)) + "%")
+    st.write("N/A: " + na + " " + str(round(na/len(trends),0)) + "%")
     
     st.markdown(get_csv_download_link(df3.data,"gsc-keyword-trends.csv"), unsafe_allow_html=True)
     st.dataframe(df3)
