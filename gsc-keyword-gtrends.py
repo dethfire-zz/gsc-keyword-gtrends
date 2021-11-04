@@ -15,15 +15,15 @@ st.markdown("""
 
 
 st.markdown("""
-<p class="big-font">Google Trends in GSC Keywordsr</p>
+<p class="big-font">Google Trends For Top GSC Keywords</p>
 <b>Directions: </b></ br><ol>
 <li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
 """, unsafe_allow_html=True)
 
+sortby = st.selectbox('Sort By',('Clicks', 'Impressions','CTR','Position'))
 cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=10)
 pause = st.number_input('Pause between calls', min_value=1, max_value=5, value=2)
 timeframe = st.selectbox('Timeframe',('today 1-m', 'today 3-m', 'today 12-m'))
-
 geo = st.selectbox('Geo',('World', 'US'))
 
 if geo == 'World':
@@ -35,7 +35,7 @@ if get_gsc_file is not None:
     st.write("Data upload success, processing... :sunglasses:")
     
     df = pd.read_csv(get_gsc_file, encoding='utf-8')
-    df.sort_values(by=['Impressions'], ascending=False, inplace=True)
+    df.sort_values(by=[sortby], ascending=False, inplace=True)
     #df.drop([0,3], inplace=True)
     df = df[:cutoff]
     
