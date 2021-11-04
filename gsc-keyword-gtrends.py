@@ -83,7 +83,7 @@ if get_gsc_file is not None:
     def colortable(val):
         if val == 'DOWN':
             color="red"
-        elif val == 'UP' 
+        elif val == 'UP':
             color = "green"
         else 
             color = 'black'
