@@ -81,12 +81,12 @@ if get_gsc_file is not None:
     df3['Trend'] = trends
     
     def style_down(v, props=''):
-        return props if v == 'DOWN' else None
+        return props if v == 'FLAT' else None
     
     def style_up(v, props=''):
         return props if v == 'UP' else None
 
-    df3 = df3.style.apply(style_down, props='color:red;font-weight:bold;').apply(style_up, props='color:green;font-weight:bold;')
+    df3 = df3.style.apply(style_down, props='color:red;font-weight:bold;')
 
     st.dataframe(df3)    
 
