@@ -80,14 +80,14 @@ if get_gsc_file is not None:
     df3['Keyword'] = keywords
     df3['Trend'] = trends
     
-    def style_negative(v, props=''):
+    def style_down(v, props=''):
         return props if v == 'DOWN' else None
     
-    def style_positive(v, props=''):
+    def style_up(v, props=''):
         return props if v == 'UP' else None
 
-    df3 = df3.style.applymap(style_negative, props='color:red;')
-    df3 = df3.style.applymap(style_positive, props='color:green;')
+    df3 = df3.style.apply(style_down, props='color:red;font-weight:bold;').apply(style_up, props='color:green;font-weight:bold;')
+
     st.dataframe(df3)    
 
 st.write('Author: [Greg Bernhardt](https://twitter.com/GregBernhardt4) | Friends: [importSEM](https://www.importsem.com) and [Physics Forums](https://www.physicsforums.com)')
