@@ -85,7 +85,7 @@ if get_gsc_file is not None:
             color="red"
         elif val == 'UP':
             color = "green"
-        else 
+        else:
             color = 'black'
         return 'color: %s' % color
 
