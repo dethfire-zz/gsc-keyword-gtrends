@@ -19,6 +19,7 @@ st.markdown("""
 <b>Directions: </b></ br><ol>
 <li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
 <li>Max number of queries to run is capped to 200 to prevent timeout of the app or being blocked by Google</li>
+<li>Tutorial coming 11/7/2021</li>
 """, unsafe_allow_html=True)
 
 sortby = st.selectbox('Sort Keywords By',('Clicks', 'Impressions','CTR','Position'))
