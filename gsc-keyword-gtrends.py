@@ -9,7 +9,7 @@ from pytrends.request import TrendReq
 st.markdown("""
 <style>
 .big-font {
-    font-size:50px !important;
+    font-size:40px !important;
 }
 </style>
 """, unsafe_allow_html=True)
