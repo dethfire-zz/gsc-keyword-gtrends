@@ -26,7 +26,7 @@ timeframe = st.selectbox('Timeframe',('1-m', '3-m', '12-m'))
 
 geo = st.selectbox('Geo',('Worldwide', 'US'))
 
-if geo = 'Wordwide':
+if geo == 'Wordwide':
     geo = ''
 
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
