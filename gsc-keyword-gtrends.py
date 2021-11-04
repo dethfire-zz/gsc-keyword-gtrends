@@ -80,10 +80,16 @@ if get_gsc_file is not None:
     df3['Keyword'] = keywords
     df3['Trend'] = trends
     
-    def style_down(v, props=''):
-        return props if v == 'FLAT' else None
+    def colortable(val):
+        if val == 'DOWN':
+            color="red"
+        elif val == 'UP' 
+            color = "green"
+        else 
+            color = 'black'
+        return 'color: %s' % color
 
-    df3 = df3.style.applymap(style_down, props='color:red;')
+    df3 = df3.style.applymap(colortable)
 
     st.dataframe(df3)    
 
