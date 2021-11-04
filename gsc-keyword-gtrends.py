@@ -81,7 +81,7 @@ if get_gsc_file is not None:
     df3['Trend'] = trends
     
     def style_negative(v, props=''):
-        return props if v = 'DOWN' else None
+        return props if v == 'DOWN' else None
 
     st.dataframe(df3.style.applymap(style_negative, props='color:red;'))      
 
