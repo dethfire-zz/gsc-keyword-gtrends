@@ -85,8 +85,10 @@ if get_gsc_file is not None:
             color="lightcoral"
         elif val == 'UP':
             color = "lightgreen"
+        elif val == 'FLAT':
+            color = "lightblue"
         else:
-            color = 'white'
+            color = 'lightgray'
         return 'background-color: %s' % color
 
     df3 = df3.style.applymap(colortable)
