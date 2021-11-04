@@ -20,7 +20,7 @@ st.markdown("""
 <li>Export Performance data (60 days clicks, impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
 """, unsafe_allow_html=True)
 
-cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value='10')
+cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=10)
 
 get_gsc_file = st.file_uploader("Upload GSC CSV File",type=['csv'])  
 
