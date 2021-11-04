@@ -18,10 +18,11 @@ st.markdown("""
 <p class="big-font">Google Trends For Top GSC Keywords</p>
 <b>Directions: </b></ br><ol>
 <li>Export Performance data (impressions, CTR, positon) in Google Search Console. Upload Queries.csv from the zip file.</li>
+<li>Keep number of queries to run to a reasonable number or you'll timeout the app or be blocked by Google</li>
 """, unsafe_allow_html=True)
 
-sortby = st.selectbox('Sort By',('Clicks', 'Impressions','CTR','Position'))
-cutoff = st.number_input('Number of queries', min_value=1, max_value=100, value=10)
+sortby = st.selectbox('Sort Keywords By',('Clicks', 'Impressions','CTR','Position'))
+cutoff = st.number_input('Number of queries', min_value=1, max_value=200, value=10)
 pause = st.number_input('Pause between calls', min_value=1, max_value=5, value=2)
 timeframe = st.selectbox('Timeframe',('today 1-m', 'today 3-m', 'today 12-m'))
 geo = st.selectbox('Geo',('World', 'US'))
