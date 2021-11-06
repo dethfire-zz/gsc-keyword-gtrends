@@ -46,7 +46,7 @@ if get_gsc_file is not None:
     df3 = pd.DataFrame(data=d)
     keywords = []
     trends = []
-    metric = df[sortyby].tolist()
+    metric = df[sortby].tolist()
     up =0
     down =0
     flat =0
