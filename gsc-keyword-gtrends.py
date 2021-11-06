@@ -60,7 +60,7 @@ if get_gsc_file is not None:
       keywords.append(keyword)
       try:
 
-        trend1 = int((df2[keyword][-5] + df2[keyword][-4] + df2[keyword][-4])/3)
+        trend1 = int((df2[keyword][-5] + df2[keyword][-4] + df2[keyword][-3])/3)
         trend2 = int((df2[keyword][-4] + df2[keyword][-3] + df2[keyword][-2])/3)
         trend3 = int((df2[keyword][-3] + df2[keyword][-2] + df2[keyword][-1])/3)
 
