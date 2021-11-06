@@ -42,10 +42,11 @@ if get_gsc_file is not None:
     #df.drop([0,3], inplace=True)
     df = df[:cutoff]
     
-    d = {'Keyword': [], 'Trend': []}
+    d = {'Keyword': [], sortby:[], 'Trend': []}
     df3 = pd.DataFrame(data=d)
     keywords = []
     trends = []
+    metric = df[sortyby].tolist()
     up =0
     down =0
     flat =0
