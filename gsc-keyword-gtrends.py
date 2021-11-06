@@ -89,6 +89,7 @@ if get_gsc_file is not None:
       
     df3['Keyword'] = keywords
     df3['Trend'] = trends
+    df3[sortby] = metric
     
     def colortable(val):
         if val == 'DOWN':
