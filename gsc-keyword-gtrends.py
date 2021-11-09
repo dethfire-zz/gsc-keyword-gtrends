@@ -39,7 +39,6 @@ if get_gsc_file is not None:
     
     df = pd.read_csv(get_gsc_file, encoding='utf-8')
     df.sort_values(by=[sortby], ascending=False, inplace=True)
-    #df.drop([0,3], inplace=True)
     df = df[:cutoff]
     
     d = {'Keyword': [], sortby:[], 'Trend': []}
@@ -65,16 +64,10 @@ if get_gsc_file is not None:
         trend2 = int((df2[keyword][-4] + df2[keyword][-3] + df2[keyword][-2])/3)
         trend3 = int((df2[keyword][-3] + df2[keyword][-2] + df2[keyword][-1])/3)
 
-        print(trend1)
-        print(trend2)
-        print(trend3)
-
         if trend3 > trend2 and trend2 > trend1:
-          print(keyword + " is trending up")
           trends.append('UP')
           up+=1
         elif trend3 < trend2 and trend2 < trend1:
-          print(keyword + " is trending down")
           trends.append('DOWN')
           down+=1
         else:
@@ -82,7 +75,6 @@ if get_gsc_file is not None:
           trends.append('FLAT')
           flat+=1
       except:
-        print(keyword + " has no data")
         trends.append('N/A')
         na+=1
       time.sleep(pause)
